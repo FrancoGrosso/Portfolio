@@ -9,7 +9,7 @@
 <body>
     <div class="login">
         <h1 class="register_title">Register</h1>
-        <form class="register_cont" action="php/user_register.php" method="POST">
+        <form class="register_cont" action="php/user_register.php" method="get">
             <label for="email">User Name</label>
                 <input type="text" class="form-control" id="email" name="user_name" placeholder="User Name" required>
                 <label for="email">Email</label>
@@ -20,7 +20,7 @@
         </form>
         <h2> Or </h2>
         <h1 class="login_title">Login</h1>
-        <form class="register_cont" action="php/user_login.php" method="POST">
+        <form class="register_cont" action="php/user_login.php" method="get">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="mail" placeholder="Email" required>
                 <label for="password">Password</label>

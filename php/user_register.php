@@ -4,9 +4,9 @@
 
     $connection = mysqli_connect("localhost", "root", "", "login_form");
 
-    $user_name = $_POST['user_name'];
-    $mail = $_POST['mail'];
-    $password = $_POST['password'];
+    $user_name = $_GET['user_name'];
+    $mail = $_GET['mail'];
+    $password = $_GET['password'];
     $password = hash('sha512', $password);
 
     $query = "INSERT INTO users(user_name, mail, user_password) 
