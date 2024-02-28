@@ -4,8 +4,8 @@ session_start();
 
 $connection = mysqli_connect("localhost", "root", "", "login_form");
 
-$mail = $_GET['mail'];
-$password = $_GET['password'];
+$mail = $_POST['mail'];
+$password = $_POST['password'];
 $password = hash('sha512', $password);
 
 $login_verify = mysqli_query($connection, "SELECT * FROM users WHERE mail = '$mail' and user_password = '$password'");
