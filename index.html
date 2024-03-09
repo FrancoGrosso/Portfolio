@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Login Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .transparent-button {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+   
+        <div class="login-signup">
+            <h1>Login</h1>
+            <form action="login.html" method="post">
+                <input autocomplete="off" type="email" name="email" id="email" placeholder="Email">
+                <input autocomplete="off" type="password" name="password" id="password" placeholder="Password">
+                <button type="submit" id="loginButton" class="transparent-button" disabled>Login <i class="fas fa-sign-in-alt"></i></button>
+            </form>
+            <h1>Sign Up</h1>
+            <form action="signup.html" method="post">
+                <input autocomplete="off" type="text" name="username" id="username" placeholder="Username">
+                <input autocomplete="off" type="email" name="email" id="signupEmail" placeholder="Email">
+                <input autocomplete="off" type="password" name="password" id="signupPassword" placeholder="Password">
+                <button type="submit" id="signupButton" class="transparent-button" disabled>Sign Up <i class="fas fa-user-plus"></i></button>
+            </form>
+        </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const loginEmail = document.getElementById("email");
+            const loginPassword = document.getElementById("password");
+            const loginButton = document.getElementById("loginButton");
+
+            const signupUsername = document.getElementById("username");
+            const signupEmail = document.getElementById("signupEmail");
+            const signupPassword = document.getElementById("signupPassword");
+            const signupButton = document.getElementById("signupButton");
+
+            const loginInputs = [loginEmail, loginPassword];
+            const signupInputs = [signupUsername, signupEmail, signupPassword];
+
+            function checkLoginInputs() {
+                const allInputsFilled = loginInputs.every(input => input.value.trim() !== "");
+                loginButton.disabled = !allInputsFilled;
+                loginButton.classList.toggle("transparent-button", !allInputsFilled);
+            }
+
+            function checkSignupInputs() {
+                const allInputsFilled = signupInputs.every(input => input.value.trim() !== "");
+                signupButton.disabled = !allInputsFilled;
+                signupButton.classList.toggle("transparent-button", !allInputsFilled);
+            }
+
+            loginInputs.forEach(input => {
+                input.addEventListener("input", checkLoginInputs);
+            });
+
+            signupInputs.forEach(input => {
+                input.addEventListener("input", checkSignupInputs);
+            });
+        });
+    </script>
+</body>
+</html>
